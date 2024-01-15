@@ -19,7 +19,7 @@ const Footer = () => {
       >
         <strong>FOR TESTING PURPOSES ONLY!</strong>
         <br></br>
-        This web app is constructed using React, Npm, Vite, Chakra UI, and
+        This web app is constructed using React, Next.js, Vite, Chakra UI, and
         GitHub, exclusively for testing purposes. Please note that all events
         displayed are simulated and cannot be added or deleted. Data is sourced
         from My JSON Server. The NFT images featured are the exclusive property
