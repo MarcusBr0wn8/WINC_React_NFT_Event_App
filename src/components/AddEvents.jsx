@@ -70,6 +70,7 @@ export const AddEvents = () => {
 
     if (response.ok) {
       setIsPending(false);
+      console.log("Event successfully added:", response.json());
       toast({
         render: ({ onClose }) => (
           <ModalMessages
