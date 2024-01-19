@@ -82,6 +82,11 @@ export const AddEvents = () => {
         ),
       });
     } else {
+      // error message
+      console.error(`Failed to add event. Status: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`Error response: ${errorText}`);
+
       toast({
         render: ({ onClose }) => (
           <ModalMessages
