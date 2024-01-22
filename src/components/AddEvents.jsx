@@ -47,57 +47,117 @@ export const AddEvents = () => {
   } = useForm();
 
   // request to backend
+  // const onSubmit = async (data) => {
+  //   setIsPending(true);
+  //   const response = await fetch(
+  //     "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
+  //     {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         createdBy: Number(data.createdBy),
+  //         title: data.title,
+  //         description: data.description,
+  //         image: data.image,
+  //         categoryIds: data.categoryIds.map((id) => parseInt(id)),
+  //         attendedBy: data.attendedBy.map((id) => parseInt(id)),
+  //         location: data.location,
+  //         startTime: data.startTime,
+  //         endTime: data.endTime,
+  //       }),
+  //       headers: { "Content-type": "application/json" },
+  //     }
+  //   );
+
+  //   if (response.ok) {
+  //     setIsPending(false);
+  //     console.log("Event successfully added:", await response.json());
+  //     toast({
+  //       render: ({ onClose }) => (
+  //         <ModalMessages
+  //           title="Add NFT-event"
+  //           description="NFT-event successfully added"
+  //           status="success"
+  //           onClose={onClose}
+  //           history={history}
+  //         />
+  //       ),
+  //     });
+  //   } else {
+  //     // error message
+  //     console.error(`Failed to add event. Status: ${response.status}`);
+  //     const errorText = await response.text();
+  //     console.error(`Error response: ${errorText}`);
+
+  //     toast({
+  //       render: ({ onClose }) => (
+  //         <ModalMessages
+  //           title="Adding the NFT-event wasn't successful"
+  //           description="Sorry, something went wrong!"
+  //           status="error"
+  //           onClose={onClose}
+  //         />
+  //       ),
+  //     });
+  //     setIsPending(false);
+  //   }
+  // };
+
   const onSubmit = async (data) => {
     setIsPending(true);
-    const response = await fetch(
-      "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          createdBy: Number(data.createdBy),
-          title: data.title,
-          description: data.description,
-          image: data.image,
-          categoryIds: data.categoryIds.map((id) => parseInt(id)),
-          attendedBy: data.attendedBy.map((id) => parseInt(id)),
-          location: data.location,
-          startTime: data.startTime,
-          endTime: data.endTime,
-        }),
-        headers: { "Content-type": "application/json" },
+    try {
+      const response = await fetch(
+        "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            createdBy: Number(data.createdBy),
+            title: data.title,
+            description: data.description,
+            image: data.image,
+            categoryIds: data.categoryIds.map((id) => parseInt(id)),
+            attendedBy: data.attendedBy.map((id) => parseInt(id)),
+            location: data.location,
+            startTime: data.startTime,
+            endTime: data.endTime,
+          }),
+          headers: { "Content-type": "application/json" },
+        }
+      );
+
+      if (response.ok) {
+        const responseData = await response.json(); // Await toegevoegd
+        setIsPending(false);
+        console.log("Event successfully added:", responseData);
+        toast({
+          render: ({ onClose }) => (
+            <ModalMessages
+              title="Add NFT-event"
+              description="NFT-event successfully added"
+              status="success"
+              onClose={onClose}
+              history={history}
+            />
+          ),
+        });
+      } else {
+        // error message
+        console.error(`Failed to add event. Status: ${response.status}`);
+        const errorText = await response.text();
+        console.error(`Error response: ${errorText}`);
+
+        toast({
+          render: ({ onClose }) => (
+            <ModalMessages
+              title="Adding the NFT-event wasn't successful"
+              description="Sorry, something went wrong!"
+              status="error"
+              onClose={onClose}
+            />
+          ),
+        });
       }
-    );
-
-    if (response.ok) {
-      setIsPending(false);
-      console.log("Event successfully added:", response.json());
-      toast({
-        render: ({ onClose }) => (
-          <ModalMessages
-            title="Add NFT-event"
-            description="NFT-event successfully added"
-            status="success"
-            onClose={onClose}
-            history={history}
-          />
-        ),
-      });
-    } else {
-      // error message
-      console.error(`Failed to add event. Status: ${response.status}`);
-      const errorText = await response.text();
-      console.error(`Error response: ${errorText}`);
-
-      toast({
-        render: ({ onClose }) => (
-          <ModalMessages
-            title="Adding the NFT-event wasn't successful"
-            description="Sorry, something went wrong!"
-            status="error"
-            onClose={onClose}
-          />
-        ),
-      });
+    } catch (error) {
+      console.error("An error occurred:", error);
       setIsPending(false);
     }
   };
@@ -122,7 +182,13 @@ export const AddEvents = () => {
       >
         <Header title={"Add a new NFT-event"} />
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="text"
+            id="title"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             Your title of the event:
             <Input
               mt="10px"
@@ -137,7 +203,13 @@ export const AddEvents = () => {
               </Text>
             )}
           </FormLabel>
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="text-area"
+            id="description"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             Your event description:
             <Textarea
               mt="10px"
@@ -153,7 +225,13 @@ export const AddEvents = () => {
               </Text>
             )}
           </FormLabel>
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="image"
+            id="event-image"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             Event image (full URL):
             <Input
               mt="10px"
@@ -168,7 +246,13 @@ export const AddEvents = () => {
               </Text>
             )}
           </FormLabel>
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="text"
+            id="location"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             Event location:
             <Input
               mt="10px"
@@ -183,7 +267,13 @@ export const AddEvents = () => {
               </Text>
             )}
           </FormLabel>
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="numbers"
+            id="start-time"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             Start time:
             <Input
               mt="10px"
@@ -199,7 +289,13 @@ export const AddEvents = () => {
               </Text>
             )}
           </FormLabel>
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="numbers"
+            id="end-time"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             End time:
             <Input
               mt="10px"
@@ -216,7 +312,13 @@ export const AddEvents = () => {
             )}
           </FormLabel>
 
-          <FormLabel mb="20px" fontSize="17px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="text"
+            id="categories"
+            mb="20px"
+            fontSize="17px"
+            color="rgb(30, 30, 30)"
+          >
             Categories:
             <Flex mt="10px">
               {categories.map(({ name, id }) => (
@@ -243,7 +345,13 @@ export const AddEvents = () => {
             </Flex>
           </FormLabel>
 
-          <FormLabel mb="20px" fontSize="17px" color="rgb(0, 30, 30)">
+          <FormLabel
+            type="text"
+            id="attended-by"
+            mb="20px"
+            fontSize="17px"
+            color="rgb(0, 30, 30)"
+          >
             Attended by:
             <Flex mt="10px">
               {users.map(({ name, id }) => (
@@ -269,7 +377,13 @@ export const AddEvents = () => {
             </Flex>
           </FormLabel>
 
-          <FormLabel mb="20px" fontSize="18px" color="rgb(30, 30, 30)">
+          <FormLabel
+            type="text"
+            id="created-by"
+            mb="20px"
+            fontSize="18px"
+            color="rgb(30, 30, 30)"
+          >
             Created by:
             <Select
               mt="10px"
