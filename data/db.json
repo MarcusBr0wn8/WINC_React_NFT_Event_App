@@ -2,85 +2,114 @@
   "users": [
     {
       "id": 1,
-      "name": "Ignacio Doe",
-      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
+      "name": "Marcus Brown",
+      "image": "https://images.unsplash.com/profile-1540824861286-a20aac3b04ea"
     },
     {
       "id": 2,
-      "name": "Jane Bennett",
-      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb401d7131c760ca1c63_Elieska%20Lensink.jpg"
+      "name": "Marco de Bruijn",
+      "image": "https://images.unsplash.com/profile-1540824861286-a20aac3b04ea"
     }
   ],
   "events": [
     {
+      "id": 1,
       "createdBy": 1,
-      "title": "NFT drop party",
-      "description": "Bounce around with your friends",
-      "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
+      "title": "SQUIT Game #456 Event",
+      "description": "This event is for members only. Enter at your own risk",
+      "image": "https://i.seadn.io/gae/LXjNaeWk4B1xgJaw5L71W2Y_OQhKWzuzQ46pYKvguFa7lLgbyWt9RDsOuAX8iSwJ6XH3MJ06CRHx43FXvCpTJgASXWpAsOj_RKby8g",
       "categoryIds": [2],
       "attendedBy": [1],
-      "location": "My back yard",
-      "startTime": "2023-03-10T15:00",
-      "endTime": "2023-03-10T17:00",
-      "id": 1
+      "location": "Paris, France",
+      "startTime": "05-02-2024T12:00",
+      "endTime": "05-02-2024T18:00"
     },
     {
       "id": 2,
       "createdBy": 1,
-      "title": "Laser Tag mania",
-      "description": "Let's play laser tag!",
-      "image": "https://www.ctvnews.ca/polopoly_fs/1.5118552.1600965663!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg",
-      "categoryIds": [2],
+      "title": "EGOD NFT Event",
+      "description": "This event is exclusive only. Special guest Elon Musk.",
+      "image": "https://i.seadn.io/gae/xji2Ou5Me3RWz5HaBvoYcSk52wjx7FXSkHXi6kCO_LccVwMXGhYI2SggnV9wvaHNumqy-1dHi_He66zIEr2V16fX1eOT5I5P-_-EBQ",
+      "categoryIds": [1, 3],
       "attendedBy": [2],
-      "location": "Blinded by the Lights Laser Tag, 15 Main St.",
-      "startTime": "2023-03-12T18:00",
-      "endTime": "2023-03-12T20:00"
+      "location": "Eindhoven, The Netherlands",
+      "startTime": "12-03-2024T18:00",
+      "endTime": "12-03-2024T20:00"
     },
     {
       "id": 3,
       "createdBy": 2,
-      "title": "Badminton game",
-      "description": "Hit that shuttle!",
-      "image": "https://s3.eu-west-2.amazonaws.com/ws-activestirling/production/Badminton/_1200x630_crop_center-center_none/Badminton-3.jpg",
-      "categoryIds": [1, 2],
+      "title": "LIKK BILL Event",
+      "description": "This event is exclusive only. Special guest Quentin tarantino.",
+      "image": "https://i.seadn.io/gae/gs0KJKVB4E5qGlqoJAIdI-kr1b_-FkZDS02SqbH6reEkf8GyN1PT5Apkf-DrWZASSch3KVb8uTdLzqvRLgfilAYu13I3DZQBmEvv",
+      "categoryIds": [2],
       "attendedBy": [1, 2],
-      "location": "The Park",
-      "startTime": "2023-03-15T12:00",
-      "endTime": "2023-03-15T13:30"
+      "location": "Chania, Crete-Greece",
+      "startTime": "15-03-2024T12:00",
+      "endTime": "16-03-2024T13:30"
     },
     {
       "id": 4,
-      "createdBy": 2,
-      "title": "Yoga",
-      "description": "It's a bit of a stretch.",
-      "image": "https://ymcasouthflorida.org/wp-content/uploads/2019/12/AA2I8910-scaled.jpg",
-      "categoryIds": [1],
-      "attendedBy": [],
-      "location": "Shavasana Yoga School",
-      "startTime": "2023-03-09T06:00",
-      "endTime": "2023-03-09T07:00"
+      "createdBy": 1,
+      "title": "GROB NFT-event",
+      "description": "This event is for VIP's only. Special guest Björn Borg's brother.",
+      "image": "https://i.seadn.io/gae/OLT4BzOKKCnlmEEBVD8uDuII5xPentpyAgyL6w9EYYHksLALvp3uIz79l3p_VPAhEFBDl4MZRMIbFP-WnwkOKz_1oL74wsdGEbBC",
+      "categoryIds": [3],
+      "attendedBy": [1],
+      "location": "Amsterdam, The Netherlands",
+      "startTime": "09-05-2024T06:00",
+      "endTime": "09-05-2024T07:00"
     },
     {
+      "id": 5,
       "createdBy": 2,
-      "title": "Zumba",
-      "description": "Let's have a good sweat together!",
-      "image": "https://joinfcf.com/wp-content/uploads/2017/08/Zumba.jpg.webp",
-      "categoryIds": [1],
+      "title": "ALSET NFT Event",
+      "description": "This event is exclusive only. Special guest Elon Musc.",
+      "image": "https://i.seadn.io/gae/kflok2OaDz8U4sEqv8DvYvWc71azYMPfBJSoEoqwLgmuK1F84a8Qo0Ll119rtNIpiCi7yQ-o1MLHzdeabsJ_i436B3XXjrjohUrG",
+      "categoryIds": [1, 3],
       "attendedBy": [2],
-      "location": "Anytime Fitness",
-      "startTime": "2023-04-12T20:00",
-      "endTime": "2023-04-12T21:00",
-      "id": 6
+      "location": "New York, United States",
+      "startTime": "12-06-2024T20:00",
+      "endTime": "12-06-2024T21:00"
+    },
+    {
+      "id": 6,
+      "createdBy": 1,
+      "title": "SQUIT Game #067 Event",
+      "description": "This event is on invitation only. Enter at your own risk",
+      "image": "https://i.seadn.io/gae/05xqw36F-gQTH7ofHc0Gb-ViYyFUi-RvAlbiPqKoJsRVNAHm5PbBTTuxvw8Yz4cgi3oTEYniFiRbvQl36tzVYAy-ZVsJsopXPKWOv94",
+      "categoryIds": [2],
+      "attendedBy": [1],
+      "location": "Tokyo, Japan",
+      "startTime": "05-03-2024T12:00",
+      "endTime": "05-03-2024T18:00"
+    },
+    {
+      "id": 7,
+      "createdBy": 2,
+      "title": "SQUIT Game #001 Event",
+      "description": "This event is for members only. Enter at your own risk",
+      "image": "https://i.seadn.io/gae/VrFsg_gTuH0tuQcxmupcK28QG6eSkkY1gJI7vLTFa7GHJ8mjbEoidm_sRSM9wtX1NGfhrCtekfZT5QO40fHGPP7PjyW9D2wt9TmV",
+      "categoryIds": [2],
+      "attendedBy": [2],
+      "location": "Milan, Italy",
+      "startTime": "05-03-2024T12:00",
+      "endTime": "05-03-2024T18:00"
     }
   ],
+
   "categories": [
     {
-      "name": "sports",
+      "name": "Crypto",
       "id": 1
     },
     {
-      "name": "games",
+      "name": "Movies",
       "id": 2
+    },
+    {
+      "name": "Fashion",
+      "id": 3
     }
   ]
 }
