@@ -23,12 +23,14 @@ const toast = useToast();
 export const loader = async () => {
   const users = await (
     await fetch(
-      "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/users"
+      // "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/users"
+      "https://my-json-server.typicode.com/MarcusBr0wn8/WINC_React_NFT_Event_App/users"
     )
   ).json();
   const categories = await (
     await fetch(
-      "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/categories"
+      // "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/categories"
+      "https://my-json-server.typicode.com/MarcusBr0wn8/WINC_React_NFT_Event_App/categories"
     )
   ).json();
 
@@ -59,7 +61,8 @@ export const AddEvents = () => {
     setIsPending(true);
     try {
       const response = await fetch(
-        "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
+        // "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
+        "https://my-json-server.typicode.com/MarcusBr0wn8/WINC_React_NFT_Event_App/events",
         {
           method: "POST",
           headers: { "Content-type": "application/json" },
