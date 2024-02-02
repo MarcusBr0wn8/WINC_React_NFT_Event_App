@@ -1,0 +1,115 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Marcus Brown",
+      "image": "https://images.unsplash.com/profile-1540824861286-a20aac3b04ea"
+    },
+    {
+      "id": 2,
+      "name": "Marco de Bruijn",
+      "image": "https://images.unsplash.com/profile-1540824861286-a20aac3b04ea"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "createdBy": 1,
+      "title": "SQUIT Game #456 Event",
+      "description": "This event is for members only. Enter at your own risk",
+      "image": "https://i.seadn.io/gae/LXjNaeWk4B1xgJaw5L71W2Y_OQhKWzuzQ46pYKvguFa7lLgbyWt9RDsOuAX8iSwJ6XH3MJ06CRHx43FXvCpTJgASXWpAsOj_RKby8g",
+      "categoryIds": [2],
+      "attendedBy": [1],
+      "location": "Paris, France",
+      "startTime": "05-02-2024T12:00",
+      "endTime": "05-02-2024T18:00"
+    },
+    {
+      "id": 2,
+      "createdBy": 1,
+      "title": "EGOD NFT Event",
+      "description": "This event is exclusive only. Special guest Elon Musk.",
+      "image": "https://i.seadn.io/gae/xji2Ou5Me3RWz5HaBvoYcSk52wjx7FXSkHXi6kCO_LccVwMXGhYI2SggnV9wvaHNumqy-1dHi_He66zIEr2V16fX1eOT5I5P-_-EBQ",
+      "categoryIds": [1, 3],
+      "attendedBy": [2],
+      "location": "Eindhoven, The Netherlands",
+      "startTime": "12-03-2024T18:00",
+      "endTime": "12-03-2024T20:00"
+    },
+    {
+      "id": 3,
+      "createdBy": 2,
+      "title": "LIKK BILL Event",
+      "description": "This event is exclusive only. Special guest Quentin tarantino.",
+      "image": "https://i.seadn.io/gae/gs0KJKVB4E5qGlqoJAIdI-kr1b_-FkZDS02SqbH6reEkf8GyN1PT5Apkf-DrWZASSch3KVb8uTdLzqvRLgfilAYu13I3DZQBmEvv",
+      "categoryIds": [2],
+      "attendedBy": [1, 2],
+      "location": "Chania, Crete-Greece",
+      "startTime": "15-03-2024T12:00",
+      "endTime": "16-03-2024T13:30"
+    },
+    {
+      "id": 4,
+      "createdBy": 1,
+      "title": "GROB NFT-event",
+      "description": "This event is for VIP's only. Special guest Björn Borg's brother.",
+      "image": "https://i.seadn.io/gae/OLT4BzOKKCnlmEEBVD8uDuII5xPentpyAgyL6w9EYYHksLALvp3uIz79l3p_VPAhEFBDl4MZRMIbFP-WnwkOKz_1oL74wsdGEbBC",
+      "categoryIds": [3],
+      "attendedBy": [1],
+      "location": "Amsterdam, The Netherlands",
+      "startTime": "09-05-2024T06:00",
+      "endTime": "09-05-2024T07:00"
+    },
+    {
+      "id": 5,
+      "createdBy": 2,
+      "title": "ALSET NFT Event",
+      "description": "This event is exclusive only. Special guest Elon Musc.",
+      "image": "https://i.seadn.io/gae/kflok2OaDz8U4sEqv8DvYvWc71azYMPfBJSoEoqwLgmuK1F84a8Qo0Ll119rtNIpiCi7yQ-o1MLHzdeabsJ_i436B3XXjrjohUrG",
+      "categoryIds": [1, 3],
+      "attendedBy": [2],
+      "location": "New York, United States",
+      "startTime": "12-06-2024T20:00",
+      "endTime": "12-06-2024T21:00"
+    },
+    {
+      "id": 6,
+      "createdBy": 1,
+      "title": "SQUIT Game #067 Event",
+      "description": "This event is on invitation only. Enter at your own risk",
+      "image": "https://i.seadn.io/gae/05xqw36F-gQTH7ofHc0Gb-ViYyFUi-RvAlbiPqKoJsRVNAHm5PbBTTuxvw8Yz4cgi3oTEYniFiRbvQl36tzVYAy-ZVsJsopXPKWOv94",
+      "categoryIds": [2],
+      "attendedBy": [1],
+      "location": "Tokyo, Japan",
+      "startTime": "05-03-2024T12:00",
+      "endTime": "05-03-2024T18:00"
+    },
+    {
+      "id": 7,
+      "createdBy": 2,
+      "title": "SQUIT Game #001 Event",
+      "description": "This event is for members only. Enter at your own risk",
+      "image": "https://i.seadn.io/gae/VrFsg_gTuH0tuQcxmupcK28QG6eSkkY1gJI7vLTFa7GHJ8mjbEoidm_sRSM9wtX1NGfhrCtekfZT5QO40fHGPP7PjyW9D2wt9TmV",
+      "categoryIds": [2],
+      "attendedBy": [2],
+      "location": "Milan, Italy",
+      "startTime": "05-03-2024T12:00",
+      "endTime": "05-03-2024T18:00"
+    }
+  ],
+
+  "categories": [
+    {
+      "name": "Crypto",
+      "id": 1
+    },
+    {
+      "name": "Movies",
+      "id": 2
+    },
+    {
+      "name": "Fashion",
+      "id": 3
+    }
+  ]
+}
