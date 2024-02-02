@@ -16,6 +16,9 @@ import {
 import { Header } from "./Header";
 import { ModalMessages } from "../components/ModalMessages";
 
+// useToast declaration for pop up message
+const toast = useToast();
+
 // Data to My JSON server
 export const loader = async () => {
   const users = await (
@@ -37,10 +40,10 @@ export const AddEvents = () => {
   const [users, categories] = useLoaderData();
   const [isPending, setIsPending] = useState(false);
 
-  // added handle function
-  const handleAdd = () => {
-    alert("Event added!");
-  };
+  // // added handle function
+  // const handleAdd = () => {
+  //   alert("Event added!");
+  // };
 
   // nav
   const history = useNavigate();
@@ -65,8 +68,8 @@ export const AddEvents = () => {
             title: data.title,
             description: data.description,
             image: data.image,
-            categoryIds: data.categoryIds.find((id) => parseInt(id)),
-            attendedBy: data.attendedBy.find((id) => parseInt(id)),
+            categoryIds: data.categoryIds.map((id) => parseInt(id)),
+            attendedBy: data.attendedBy.map((id) => parseInt(id)),
             location: data.location,
             startTime: data.startTime,
             endTime: data.endTime,
@@ -74,8 +77,41 @@ export const AddEvents = () => {
         }
       );
 
+      // if (response.ok) {
+      //   const responseData = await response.json(); // Await here
+      //   setIsPending(false);
+      //   console.log("Event successfully added:", responseData);
+      //   toast({
+      //     render: ({ onClose }) => (
+      //       <ModalMessages
+      //         title="Add NFT-event"
+      //         description="NFT-event successfully added"
+      //         status="success"
+      //         onClose={onClose}
+      //         history={history}
+      //       />
+      //     ),
+      //   });
+      // } else {
+      //   // error message
+      //   console.error(`Failed to add event. Status: ${response.status}`);
+      //   const errorText = await response.text();
+      //   console.error(`Error response: ${errorText}`);
+
+      //   toast({
+      //     render: ({ onClose }) => (
+      //       <ModalMessages
+      //         title="Adding the NFT-event wasn't successful"
+      //         description="Sorry, something went wrong!"
+      //         status="error"
+      //         onClose={onClose}
+      //       />
+      //     ),
+      //   });
+      // }
+
       if (response.ok) {
-        const responseData = await response.json(); // Await here
+        const responseData = await response.json();
         setIsPending(false);
         console.log("Event successfully added:", responseData);
         toast({
@@ -90,7 +126,7 @@ export const AddEvents = () => {
           ),
         });
       } else {
-        // error message
+        // Handle failure case
         console.error(`Failed to add event. Status: ${response.status}`);
         const errorText = await response.text();
         console.error(`Error response: ${errorText}`);
@@ -116,9 +152,6 @@ export const AddEvents = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // useToast declaration for pop up message
-  const toast = useToast();
 
   return (
     <>
@@ -362,7 +395,7 @@ export const AddEvents = () => {
             </Button>
           ) : (
             <Button
-              type="onsubmit"
+              type="onSubmit"
               color="white"
               mb="20px"
               width={{ lg: "150px" }}
