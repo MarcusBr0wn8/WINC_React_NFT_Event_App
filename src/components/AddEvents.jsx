@@ -80,41 +80,8 @@ export const AddEvents = () => {
         }
       );
 
-      // if (response.ok) {
-      //   const responseData = await response.json(); // Await here
-      //   setIsPending(false);
-      //   console.log("Event successfully added:", responseData);
-      //   toast({
-      //     render: ({ onClose }) => (
-      //       <ModalMessages
-      //         title="Add NFT-event"
-      //         description="NFT-event successfully added"
-      //         status="success"
-      //         onClose={onClose}
-      //         history={history}
-      //       />
-      //     ),
-      //   });
-      // } else {
-      //   // error message
-      //   console.error(`Failed to add event. Status: ${response.status}`);
-      //   const errorText = await response.text();
-      //   console.error(`Error response: ${errorText}`);
-
-      //   toast({
-      //     render: ({ onClose }) => (
-      //       <ModalMessages
-      //         title="Adding the NFT-event wasn't successful"
-      //         description="Sorry, something went wrong!"
-      //         status="error"
-      //         onClose={onClose}
-      //       />
-      //     ),
-      //   });
-      // }
-
       if (response.ok) {
-        const responseData = await response.json();
+        const responseData = await response.json(); // Await here
         setIsPending(false);
         console.log("Event successfully added:", responseData);
         toast({
@@ -129,7 +96,7 @@ export const AddEvents = () => {
           ),
         });
       } else {
-        // Handle failure case
+        // error message
         console.error(`Failed to add event. Status: ${response.status}`);
         const errorText = await response.text();
         console.error(`Error response: ${errorText}`);
@@ -145,6 +112,39 @@ export const AddEvents = () => {
           ),
         });
       }
+
+      // if (response.ok) {
+      //   const responseData = await response.json();
+      //   setIsPending(false);
+      //   console.log("Event successfully added:", responseData);
+      //   toast({
+      //     render: ({ onClose }) => (
+      //       <ModalMessages
+      //         title="Add NFT-event"
+      //         description="NFT-event successfully added"
+      //         status="success"
+      //         onClose={onClose}
+      //         history={history}
+      //       />
+      //     ),
+      //   });
+      // } else {
+      //   // Handle failure case
+      //   console.error(`Failed to add event. Status: ${response.status}`);
+      //   const errorText = await response.text();
+      //   console.error(`Error response: ${errorText}`);
+
+      //   toast({
+      //     render: ({ onClose }) => (
+      //       <ModalMessages
+      //         title="Adding the NFT-event wasn't successful"
+      //         description="Sorry, something went wrong!"
+      //         status="error"
+      //         onClose={onClose}
+      //       />
+      //     ),
+      //   });
+      // }
     } catch (error) {
       console.error("An error occurred:", error);
       setIsPending(false);
