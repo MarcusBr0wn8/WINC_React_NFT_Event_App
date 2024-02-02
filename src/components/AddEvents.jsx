@@ -362,7 +362,7 @@ export const AddEvents = () => {
             </Button>
           ) : (
             <Button
-              type="button"
+              type="onsubmit"
               color="white"
               mb="20px"
               width={{ lg: "150px" }}
