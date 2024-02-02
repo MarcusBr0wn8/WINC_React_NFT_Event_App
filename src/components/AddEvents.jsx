@@ -16,6 +16,7 @@ import {
 import { Header } from "./Header";
 import { ModalMessages } from "../components/ModalMessages";
 
+// Data to My JSON server
 export const loader = async () => {
   const users = await (
     await fetch(
@@ -36,6 +37,11 @@ export const AddEvents = () => {
   const [users, categories] = useLoaderData();
   const [isPending, setIsPending] = useState(false);
 
+  // added handle function
+  const handleAdd = () => {
+    alert("Event added!");
+  };
+
   // nav
   const history = useNavigate();
 
@@ -45,62 +51,6 @@ export const AddEvents = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  // request to backend
-  // const onSubmit = async (data) => {
-  //   setIsPending(true);
-  //   const response = await fetch(
-  //     "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
-  //     {
-  //       method: "POST",
-  //       body: JSON.stringify({
-  //         createdBy: Number(data.createdBy),
-  //         title: data.title,
-  //         description: data.description,
-  //         image: data.image,
-  //         categoryIds: data.categoryIds.map((id) => parseInt(id)),
-  //         attendedBy: data.attendedBy.map((id) => parseInt(id)),
-  //         location: data.location,
-  //         startTime: data.startTime,
-  //         endTime: data.endTime,
-  //       }),
-  //       headers: { "Content-type": "application/json" },
-  //     }
-  //   );
-
-  //   if (response.ok) {
-  //     setIsPending(false);
-  //     console.log("Event successfully added:", await response.json());
-  //     toast({
-  //       render: ({ onClose }) => (
-  //         <ModalMessages
-  //           title="Add NFT-event"
-  //           description="NFT-event successfully added"
-  //           status="success"
-  //           onClose={onClose}
-  //           history={history}
-  //         />
-  //       ),
-  //     });
-  //   } else {
-  //     // error message
-  //     console.error(`Failed to add event. Status: ${response.status}`);
-  //     const errorText = await response.text();
-  //     console.error(`Error response: ${errorText}`);
-
-  //     toast({
-  //       render: ({ onClose }) => (
-  //         <ModalMessages
-  //           title="Adding the NFT-event wasn't successful"
-  //           description="Sorry, something went wrong!"
-  //           status="error"
-  //           onClose={onClose}
-  //         />
-  //       ),
-  //     });
-  //     setIsPending(false);
-  //   }
-  // };
 
   const onSubmit = async (data) => {
     setIsPending(true);
@@ -125,7 +75,7 @@ export const AddEvents = () => {
       );
 
       if (response.ok) {
-        const responseData = await response.json(); // Await toegevoegd
+        const responseData = await response.json(); // Await here
         setIsPending(false);
         console.log("Event successfully added:", responseData);
         toast({
@@ -412,13 +362,15 @@ export const AddEvents = () => {
             </Button>
           ) : (
             <Button
-              type="submit"
+              type="button"
               color="white"
               mb="20px"
               width={{ lg: "150px" }}
               background="rgb(0, 51, 255)"
               _hover={{ background: "rgb(11, 19, 189)" }}
+              onClick={handleAdd}
             >
+              {" "}
               Add event
             </Button>
           )}
