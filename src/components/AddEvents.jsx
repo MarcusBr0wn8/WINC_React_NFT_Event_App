@@ -16,21 +16,16 @@ import {
 import { Header } from "./Header";
 import { ModalMessages } from "../components/ModalMessages";
 
-// useToast declaration for pop up message
-const toast = useToast();
-
 // Data to My JSON server
 export const loader = async () => {
   const users = await (
     await fetch(
-      // "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/users"
-      "https://my-json-server.typicode.com/MarcusBr0wn8/WINC_React_NFT_Event_App/users"
+      "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/users"
     )
   ).json();
   const categories = await (
     await fetch(
-      // "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/categories"
-      "https://my-json-server.typicode.com/MarcusBr0wn8/WINC_React_NFT_Event_App/categories"
+      "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/categories"
     )
   ).json();
 
@@ -42,10 +37,10 @@ export const AddEvents = () => {
   const [users, categories] = useLoaderData();
   const [isPending, setIsPending] = useState(false);
 
-  // // added handle function
-  // const handleAdd = () => {
-  //   alert("Event added!");
-  // };
+  // added 
+  const handleAdd = () => {
+    alert("Event added!");
+  };
 
   // nav
   const history = useNavigate();
@@ -61,11 +56,9 @@ export const AddEvents = () => {
     setIsPending(true);
     try {
       const response = await fetch(
-        // "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
-        "https://my-json-server.typicode.com/MarcusBr0wn8/WINC_React_NFT_Event_App/events",
+        "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
         {
           method: "POST",
-          headers: { "Content-type": "application/json" },
           body: JSON.stringify({
             createdBy: Number(data.createdBy),
             title: data.title,
@@ -77,6 +70,7 @@ export const AddEvents = () => {
             startTime: data.startTime,
             endTime: data.endTime,
           }),
+          headers: { "Content-type": "application/json" },
         }
       );
 
@@ -112,39 +106,6 @@ export const AddEvents = () => {
           ),
         });
       }
-
-      // if (response.ok) {
-      //   const responseData = await response.json();
-      //   setIsPending(false);
-      //   console.log("Event successfully added:", responseData);
-      //   toast({
-      //     render: ({ onClose }) => (
-      //       <ModalMessages
-      //         title="Add NFT-event"
-      //         description="NFT-event successfully added"
-      //         status="success"
-      //         onClose={onClose}
-      //         history={history}
-      //       />
-      //     ),
-      //   });
-      // } else {
-      //   // Handle failure case
-      //   console.error(`Failed to add event. Status: ${response.status}`);
-      //   const errorText = await response.text();
-      //   console.error(`Error response: ${errorText}`);
-
-      //   toast({
-      //     render: ({ onClose }) => (
-      //       <ModalMessages
-      //         title="Adding the NFT-event wasn't successful"
-      //         description="Sorry, something went wrong!"
-      //         status="error"
-      //         onClose={onClose}
-      //       />
-      //     ),
-      //   });
-      // }
     } catch (error) {
       console.error("An error occurred:", error);
       setIsPending(false);
@@ -155,6 +116,9 @@ export const AddEvents = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // useToast declaration for pop up message
+  const toast = useToast();
 
   return (
     <>
@@ -398,7 +362,7 @@ export const AddEvents = () => {
             </Button>
           ) : (
             <Button
-              type="onSubmit"
+              type="button"
               color="white"
               mb="20px"
               width={{ lg: "150px" }}
