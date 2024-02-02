@@ -59,18 +59,18 @@ export const AddEvents = () => {
         "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
         {
           method: "POST",
+          headers: { "Content-type": "application/json" },
           body: JSON.stringify({
             createdBy: Number(data.createdBy),
             title: data.title,
             description: data.description,
             image: data.image,
-            categoryIds: data.categoryIds.map((id) => parseInt(id)),
-            attendedBy: data.attendedBy.map((id) => parseInt(id)),
+            categoryIds: data.categoryIds.find((id) => parseInt(id)),
+            attendedBy: data.attendedBy.find((id) => parseInt(id)),
             location: data.location,
             startTime: data.startTime,
             endTime: data.endTime,
           }),
-          headers: { "Content-type": "application/json" },
         }
       );
 
