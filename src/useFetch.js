@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
+//Fetch for EventsPage
 export const useFetch = (url) => {
   const [data, setData] = useState(null); // Corrected the type
   const [isPending, setIsPending] = useState(true);
