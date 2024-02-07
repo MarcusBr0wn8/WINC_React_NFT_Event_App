@@ -37,7 +37,7 @@ export const AddEvents = () => {
   const [users, categories] = useLoaderData();
   const [isPending, setIsPending] = useState(false);
 
-  // added 
+  // added
   const handleAdd = () => {
     alert("Event added!");
   };
