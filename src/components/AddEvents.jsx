@@ -48,6 +48,8 @@ export const AddEvents = () => {
     reset,
   } = useForm();
 
+  const onSubmit = (data) => console.log(data);
+
   const handleAdd = async (data) => {
     try {
       console.log("Request Payload:", JSON.stringify(data));
