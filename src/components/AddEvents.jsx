@@ -43,7 +43,7 @@ export const AddEvents = () => {
   // register form
   const {
     register,
-    onSubmit,
+    handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
@@ -374,7 +374,7 @@ export const AddEvents = () => {
               width={{ lg: "150px" }}
               background="rgb(0, 51, 255)"
               _hover={{ background: "rgb(11, 19, 189)" }}
-              onClick={onSubmit}
+              onClick={handleAdd}
             >
               {" "}
               Add event
