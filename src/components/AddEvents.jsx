@@ -48,115 +48,71 @@ export const AddEvents = () => {
     reset,
   } = useForm();
 
-  // const handleAdd = async (data) => {
-  //   try {
-  //     console.log("Request Payload:", JSON.stringify(data));
-  //     // Make a POST request to the backend
-  //     const response = await fetch(
-  //       "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           createdBy: Number(data.createdBy),
-  //           title: data.title,
-  //           description: data.description,
-  //           image: data.image,
-  //           categoryIds: data.categoryIds.map((id) => parseInt(id)),
-  //           attendedBy: data.attendedBy.map((id) => parseInt(id)),
-  //           location: data.location,
-  //           startTime: data.startTime,
-  //           endTime: data.endTime,
-  //         }),
-  //       }
-  //     );
-
-      
-
-  //     console.log("Response:", response);
-
-  //     if (response.ok) {
-  //       const responseData = await response.json();
-  //       setIsPending(false);
-  //       console.log("Event successfully added:", responseData);
-  //       toast({
-  //         render: ({ onClose }) => (
-  //           <ModalMessages
-  //             title="Add NFT-event"
-  //             description="NFT-event successfully added"
-  //             status="success"
-  //             onClose={() => {
-  //               onClose();
-  //               reset();
-  //             }}
-  //             history={history}
-  //           />
-  //         ),
-  //       });
-  //     } else {
-  //       // error message
-  //       console.error(`Failed to add event. Status: ${response.status}`);
-  //       const errorText = await response.text();
-  //       console.error(`Error response: ${errorText}`);
-
-  //       toast({
-  //         render: ({ onClose }) => (
-  //           <ModalMessages
-  //             title="Adding the NFT-event wasn't successful"
-  //             description="Sorry, something went wrong!"
-  //             status="error"
-  //             onClose={onClose}
-  //           />
-  //         ),
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error("An error occurred:", error);
-  //     setIsPending(false);
-  //   }
-  // };
-
   const handleAdd = async (data) => {
     try {
       console.log("Request Payload:", JSON.stringify(data));
+      // Make a POST request to the backend
+      const response = await fetch(
+        "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            createdBy: Number(data.createdBy),
+            title: data.title,
+            description: data.description,
+            image: data.image,
+            categoryIds: data.categoryIds.map((id) => parseInt(id)),
+            attendedBy: data.attendedBy.map((id) => parseInt(id)),
+            location: data.location,
+            startTime: data.startTime,
+            endTime: data.endTime,
+          }),
+        }
+      );
 
-      // // Call the postEvent function with the form data
-      // await postEvent(data);
+      console.log("Response:", response);
 
-      setIsPending(false);
+      if (response.ok) {
+        const responseData = await response.json();
+        setIsPending(false);
+        console.log("Event successfully added:", responseData);
+        toast({
+          render: ({ onClose }) => (
+            <ModalMessages
+              title="Add NFT-event"
+              description="NFT-event successfully added"
+              status="success"
+              onClose={() => {
+                onClose();
+                reset();
+              }}
+              history={history}
+            />
+          ),
+        });
+      } else {
+        // error message
+        console.error(`Failed to add event. Status: ${response.status}`);
+        const errorText = await response.text();
+        console.error(`Error response: ${errorText}`);
 
-      // Additional code if needed
-      toast({
-        render: ({ onClose }) => (
-          <ModalMessages
-            title="Add NFT-event"
-            description="NFT-event successfully added"
-            status="success"
-            onClose={() => {
-              onClose();
-              reset();
-            }}
-            history={history}
-          />
-        ),
-      });
+        toast({
+          render: ({ onClose }) => (
+            <ModalMessages
+              title="Adding the NFT-event wasn't successful"
+              description="Sorry, something went wrong!"
+              status="error"
+              onClose={onClose}
+            />
+          ),
+        });
+      }
     } catch (error) {
       console.error("An error occurred:", error);
       setIsPending(false);
-
-      // Additional error handling code if needed
-      toast({
-        render: ({ onClose }) => (
-          <ModalMessages
-            title="Adding the NFT-event wasn't successful"
-            description="Sorry, something went wrong!"
-            status="error"
-            onClose={onClose}
-          />
-        ),
-      });
     }
   };
 
