@@ -180,7 +180,7 @@ export const AddEvents = () => {
               </Text>
             )}
           </FormLabel>
-          <FormLabel
+          {/* <FormLabel
             type="image"
             id="event-image"
             mb="20px"
@@ -200,7 +200,7 @@ export const AddEvents = () => {
                 This field is required!
               </Text>
             )}
-          </FormLabel>
+          </FormLabel> */}
           <FormLabel
             type="text"
             id="location"
