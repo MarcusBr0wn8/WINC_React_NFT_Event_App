@@ -48,12 +48,23 @@ export const AddEvents = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
-
   const handleAdd = async (data) => {
     try {
-      console.log("Request Payload:", JSON.stringify(data));
-      // Make a POST request to the backend
+      // Extract only the needed properties from the data object
+      const requestData = {
+        createdBy: Number(data.createdBy),
+        title: data.title,
+        description: data.description,
+        image: data.image,
+        categoryIds: data.categoryIds.map((id) => parseInt(id)),
+        attendedBy: data.attendedBy.map((id) => parseInt(id)),
+        location: data.location,
+        startTime: data.startTime,
+        endTime: data.endTime,
+      };
+
+      console.log("Request Payload:", requestData);
+
       const response = await fetch(
         "https://my-json-server.typicode.com/MarcusBr0wn8/event-db/events",
         {
@@ -61,21 +72,9 @@ export const AddEvents = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            createdBy: Number(data.createdBy),
-            title: data.title,
-            description: data.description,
-            image: data.image,
-            categoryIds: data.categoryIds.map((id) => parseInt(id)),
-            attendedBy: data.attendedBy.map((id) => parseInt(id)),
-            location: data.location,
-            startTime: data.startTime,
-            endTime: data.endTime,
-          }),
+          body: JSON.stringify(requestData),
         }
       );
-
-      console.log("Response:", response);
 
       if (response.ok) {
         const responseData = await response.json();
